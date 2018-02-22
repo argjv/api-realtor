@@ -27,7 +27,10 @@ app.listen(3000, function(){
 var dbConfig = require('./config/database.config.js');
 var mongoose = require('mongoose');
 
-mongoose.connect(dbConfig.url);
+mongoose.connect(dbConfig.url, function(err, db) {
+    if (err) throw err;
+    console.log('Database Up!');
+});
 
 mongoose.connection.on('error', function() {
     console.log('Could not connect to the database. Exiting now...');
