@@ -1,6 +1,6 @@
 # api-realtor
 ## API Realtor
-In order to store data correctly, a docker instance running MongoDB needs to run on the development environment.
+In order to store data correctly, a docker instance running MongoDB is needed on the development environment.
 
 ___
 *Prerequisites*
