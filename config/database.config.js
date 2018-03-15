@@ -1,5 +1,5 @@
 require('dotenv').config({ path: './variables.env' });
 
 module.exports = {
-    url: process.env.DB_STRING_LOCAL
+    url:'mongodb://localhost:27017/realtordb'
 }
