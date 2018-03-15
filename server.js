@@ -29,7 +29,7 @@ var port = process.env.PORT || 3000;        // set our port
 // listen for requests
 app.listen(port)
 
-console.log('Server is listening on port' + port);
+console.log('Server is listening on port ' + port);
 
 
 // Configuring the database
