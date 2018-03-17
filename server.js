@@ -12,7 +12,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // parse requests of content-type - application/json
 app.use(bodyParser.json())
 
-// Add headers
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_URL);
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -21,18 +20,27 @@ app.use(function (req, res, next) {
     next();
 });
 
+var router = express.Router();   	//get an instance of the express Router
+
 // define a simple route
-app.get('/', function(req, res){
+router.get('/', function(req, res){
     res.json({"message": "Realtor REST api"});
 });
+
+//prefix all routes with /api
+app.use('/api', router);
 
 require('./app/routes/user.routes.js')(app);
 require('./app/routes/property.routes.js')(app);
 
+//define port in case we need to change it later
+var port = process.env.PORT || 3000;        // set our port
+
 // listen for requests
-app.listen(3000, function(){
-    console.log("Server is listening on port 3000");
-});
+app.listen(port)
+
+console.log('Server is listening on port ' + port);
+
 
 // Configuring the database
 var dbConfig = require('./config/database.config.js');

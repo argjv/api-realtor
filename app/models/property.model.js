@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
 
-var PropertySchema = mongoose.Schema({
+//Added proper schema for DB structure
+var Schema = mongoose.Schema
+
+var PropertySchema = new Schema({
     address1: String,
     address2: String,
     owner: String
