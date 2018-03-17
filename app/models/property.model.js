@@ -6,7 +6,14 @@ var Schema = mongoose.Schema
 var PropertySchema = new Schema({
     address1: String,
     address2: String,
-    owner: String
+    owner: String,
+    city: String,
+    zip: String,
+    estate: String,
+    beds: Number,
+    baths: Number,
+    sqft: Number,
+    price: Number
 }, {
     timestamps: true
 });
