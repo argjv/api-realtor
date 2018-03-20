@@ -5,11 +5,7 @@ exports.create = function(req, res) {
     if(!req.body.address1 || !req.body.owner) {
         res.status(400).send({message: "Owner and address can not be empty"});
     }
-    var property = new Property({
-    	owner: req.body.owner,
-	    address1: req.body.address1,
-	    address2: req.body.address2 || ""
-    });
+    var property = new Property(req.body);
 
     property.save(function(err, data) {
         console.log(data);
