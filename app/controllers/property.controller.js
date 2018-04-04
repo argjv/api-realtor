@@ -47,9 +47,7 @@ exports.update = function(req, res) {
             res.status(500).send({message: "Could not find a property with id " + req.params.propertyId});
         }
 
-        property.owner = req.body.owner;
-	    property.address1 = req.body.address1;
-	    property.address2 = req.body.address2;
+        Object.assign(property, req.body);
 
         property.save(function(err, data){
             if(err) {
