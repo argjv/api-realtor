@@ -10,11 +10,12 @@ var PropertySchema = new Schema({
     owner: String,
     city: String,
     zip: String,
-    estate: String,
+    state: String,
     beds: Number,
     baths: Number,
     sqft: Number,
-    price: Number
+    price: Number,
+    status: Number
 }, {
     timestamps: true
 });

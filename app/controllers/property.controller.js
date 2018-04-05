@@ -30,10 +30,10 @@ exports.findAll = function(req, res) {
 };
 
 exports.findOne = function(req, res) {
-    // Find a single property with a propertyId
-    Property.findById(req.params.propertyId, function(err, data) {
+    // Find a single property with a ethid
+    Property.findOne({ethid: req.params.ethid}, function(err, data) {
         if(err) {
-            res.status(500).send({message: "Could not retrieve property with id " + req.params.propertyId});
+            res.status(500).send({message: "Could not retrieve property with id " + req.params.ethid});
         } else {
             res.send(data);
         }
@@ -41,17 +41,17 @@ exports.findOne = function(req, res) {
 };
 
 exports.update = function(req, res) {
-    // Update a property identified by the propertyId in the request
-    Property.findById(req.params.propertyId, function(err, property) {
+    // Update a property identified by the ethid in the request
+    Property.findOne({ethid: req.params.ethid}, function(err, property) {
         if(err) {
-            res.status(500).send({message: "Could not find a property with id " + req.params.propertyId});
+            res.status(500).send({message: "Could not find a property with id " + req.params.ethid});
         }
 
         Object.assign(property, req.body);
 
         property.save(function(err, data){
             if(err) {
-                res.status(500).send({message: "Could not update property with id " + req.params.propertyId});
+                res.status(500).send({message: "Could not update property with id " + req.params.ethid});
             } else {
                 res.send(data);
             }
@@ -60,10 +60,10 @@ exports.update = function(req, res) {
 };
 
 exports.delete = function(req, res) {
-    // Delete a property with the specified propertyId in the request
-    Property.remove({_id: req.params.propertyId}, function(err, data) {
+    // Delete a property with the specified ethid in the request
+    Property.remove({ethid_id: req.params.ethid}, function(err, data) {
         if(err) {
-            res.status(500).send({message: "Could not delete property with id " + req.params.id});
+            res.status(500).send({message: "Could not delete property with id " + req.params.ethid});
         } else {
             res.send({message: "Property deleted successfully!"})
         }

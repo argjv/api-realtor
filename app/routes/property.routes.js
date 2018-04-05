@@ -8,12 +8,12 @@ module.exports = function(app) {
     // Retrieve all Properties
     app.get('/properties', properties.findAll);
 
-    // Retrieve a single Property with propertyId
-    app.get('/properties/:propertyId', properties.findOne);
+    // Retrieve a single Property with ethid
+    app.get('/properties/:ethid', properties.findOne);
 
-    // Update a Property with propertyId
-    app.put('/properties/:propertyId', properties.update);
+    // Update a Property with ethid
+    app.put('/properties/:ethid', properties.update);
 
-    // Delete a Property with propertyId
-    app.delete('/properties/:propertyId', properties.delete);
+    // Delete a Property with ethid
+    app.delete('/properties/:ethid', properties.delete);
 }
