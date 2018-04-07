@@ -19,8 +19,10 @@ exports.create = function(req, res) {
 };
 
 exports.findAll = function(req, res) {
+    let filters = {}
+    Object.assign(filters, req.query);
     // Retrieve and return all properties from the database.
-    Property.find(function(err, properties){
+    Property.find(filters, function(err, properties){
         if(err) {
             res.status(500).send({message: "Some error occurred while retrieving properties."});
         } else {
