@@ -19,6 +19,10 @@ exports.create = function(req, res) {
 };
 
 exports.findAll = function(req, res) {
+<<<<<<< HEAD
+=======
+    console.log(req.query);
+>>>>>>> 98d2b33cea7e0a7f48f309cd03da7c97293e9e5f
     let filters = {}
     Object.assign(filters, req.query);
     // Retrieve and return all properties from the database.
