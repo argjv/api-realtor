@@ -32,6 +32,7 @@ app.use('/api', router);
 
 require('./app/routes/user.routes.js')(app);
 require('./app/routes/property.routes.js')(app);
+require('./app/routes/offer.routes.js')(app);
 
 //define port in case we need to change it later
 var port = process.env.PORT || 3000;        // set our port
