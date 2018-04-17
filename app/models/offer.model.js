@@ -5,7 +5,8 @@ var Schema = mongoose.Schema
 var OfferSchema = new Schema({
     owner: String,
     offer: Number,
-    ethid: String
+    ethid: String,
+    status: Number
 }, {
     timestamps: true
 });
